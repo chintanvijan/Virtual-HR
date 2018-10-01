@@ -1,0 +1,12 @@
+{% extends "first.html" %}
+{% block content %}
+<p><h4>
+	{% for i in your_list %}
+		{{i}}
+	{% endfor %}
+</h4></p>
+	<form action="/home" method="POST">
+		<button type="submit" class="btn btn-primary btn-block" >Stop</button>
+	</form>
+	
+{% endblock content %}
