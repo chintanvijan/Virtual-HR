@@ -1,1 +1,1 @@
-Contains python scripts for NLP,Computer Vision, Image Processing,etc .
+Contains python scripts for NLP,Computer Vision, Image Processing,etc.
