@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <title></title>
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta charset="utf-8">
+        <meta name="author" content="">
+        <!--[if IE]>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+        <![endif]-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="{%  static 'website/img/favicon/favicon.ico' %}">
+        <!-- Fonts -->
+        <link href="{% static 'website/css/font-roboto.css' %}" rel="stylesheet">
+        <link href="{% static 'website/css/font-awesome.min.css' %}" media="all" rel="stylesheet">
+        <!-- CSS -->
+        <link rel="stylesheet" href="{% static 'website/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'website/css/bootstrapValidator.min.css' %}">
+        <link href="{% static 'website/css/screen.css' %}" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <div class="main">
+            <!-- HEADER -->
+            
+            {% block page_content %} {% endblock %}
+            <!-- Footer -->
+            <footer class="bg-light">
+                <div class="container">
+                    <div class="row copyright">
+                        <div class="col-md-4"><a href="#">Terms</a> | <a href="#">Privacy</a></div>
+                        <div class="col-md-8 text-right">Created by Chintan Vijan.</div>
+                    </div>
+                </div>
+            </footer>
+            <!-- /Footer -->
+        </div>
+        <!-- /main -->
+        {% include 'sample_modal.html' %}
+    </body>
+</html>

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block page_content %}
+
+<!-- Writing sample -->
+
+<!-- /Writing sample -->
+<!-- Modal Writing Sample-->
+    
+
+<!-- /Hire for: -->
+<!-- Testimonials -->
+
+<!-- /Testimonials -->
+<!-- Pricing -->
+
+<!-- /Pricing -->
+<!-- Let's Talk -->
+<section class="pd-30 pt-30 letsTalk">
+    <div class="container my-5">
+        <div class="sectionHeader text-center">
+            <h2>Take an Appointment.</h2>
+            <p class="tagline">Send request to us. We will contact you soon.</p>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <form action ="" class="contactForm" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <!-- Alerts -->
+                        {% if form.errors %}
+                        <div class="alert alert-danger" role="alert">
+                            {{ form.errors }}
+                        </div>
+                        {% endif %}
+                        {% if messages %}
+                            {% for message in messages %}
+                            <div class="alert alert-success" role="alert">
+                            {{ message }}
+                        </div>
+                            {% endfor %}
+                        {% endif %}
+                        <!-- /.Alerts -->
+                    </div>
+                    {{ form|crispy }}
+                    <br/>
+                    
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-primary btn-lg send">Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /Let's Talk -->
+
+{% endblock %}
