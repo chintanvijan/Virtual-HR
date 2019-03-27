@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+
+<!-- Writing sample -->
+
+<!-- /Writing sample -->
+<!-- Modal Writing Sample-->
+    
+
+<!-- /Hire for: -->
+<!-- Testimonials -->
+
+<!-- /Testimonials -->
+<!-- Pricing -->
+
+<!-- /Pricing -->
+<!-- Let's Talk -->
+<section class="pd-30 pt-30 letsTalk">
+    <div class="container my-5">
+        <div class="sectionHeader text-center">
+            <h2>Hello I'm Charlie</h2>
+            <p class="tagline">I'm an interviewer.</p>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mx-auto">
+             <img src="{% static 'website/img/bot.gif' %}" height="300" />
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col-md-1 mx-auto">
+                <form action="{% url 'intro' %}">
+                    <button type="submit" class="btn btn-info" id="btnSpeak">Know Charlie</button>
+                     <script>
+                 //document.getElementById("btnSpeak").click();
+            var voiceList = document.querySelector('#voiceList');
+            var txtInput = document.querySelector('#txtInput');
+            //var btnSpeak = document.querySelector('#btnSpeak');
+
+            var tts = window.speechSynthesis;
+            var voices = [];
+
+            GetVoices();
+
+            if(speechSynthesis !== undefined){
+                speechSynthesis.onvoicesChanged=GetVoices;
+
+            }
+                //const ut = new SpeechSynthesisUtterance('No warning should arise');
+                //speechSynthesis.speak(ut);
+
+            btnSpeak.addEventListener('click', () => {
+                var toSpeak = new SpeechSynthesisUtterance(txtInput.value);
+                //var selectedVoiceName = voiceList.selectedOptions[0].getAttribute('data-name');
+                var selectedVoiceName = "Google UK English Male";
+                voices.forEach((voice) => {
+                        if(voice.name === selectedVoiceName){
+                            toSpeak.voice = voice;
+                        }
+                });
+                tts.speak(toSpeak);
+            });
+
+            function GetVoices(){
+                voices = tts.getVoices();
+                voiceList.innerHTML= "";
+                voices.forEach((voice)=>{
+                    var listItem = document.createElement('option');
+                    listItem.textContent = voice.name;
+                    listItem.setAttribute('data-lang',voice.lang);
+                    listItem.setAttribute('data-name',voice.name);
+                    voiceList.appendChild(listItem);
+                });
+                voiceList.selectedIndex = 0;
+            }
+        </script>
+                 </form>
+            </div>
+            <div class="mx-auto">
+                 <form action="{% url 'login' %}">
+
+                    <button type="submit" class="btn btn-primary">Start Your Interview</button>
+                  </form>
+            </div>
+            <div class="mx-auto">
+                  <form action="{% url 'home' %}">
+                  <button type="submit" class="btn btn-primary">Take an Appointment</button>
+                    </form>
+            </div>
+            </div>
+             
+        </div>
+    </div>
+</section>
+<!-- /Let's Talk -->
+
+{% endblock %}

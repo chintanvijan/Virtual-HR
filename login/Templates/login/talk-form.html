@@ -1,0 +1,49 @@
+<!-- Let's talk -->
+<div class="modal fade" id="letsTalk" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"><i class="fa fa-comments hidden">&nbsp;</i>Let’s Talk About your Project</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body pt-5 pb-5">
+                <div class="row letsTalk">
+                    <div class="col-md-10 mx-auto">
+                        <form action =".modal" class="contactForm" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <!-- Alerts -->
+                        {% if form.errors %}
+                        <div class="alert alert-danger" role="alert">
+                            {{ form.errors }}
+                        </div>
+                        {% endif %}
+                        {% if messages %}
+                            {% for message in messages %}
+                            <div class="alert alert-success" role="alert">
+                            {{ message }}
+                        </div>
+                            {% endfor %}
+                        {% endif %}
+                        <!-- /.Alerts -->
+                    </div>
+                    {{ form.name }}
+                    <br/>
+                    {{ form.email }}
+                    <br/>
+                    {{ form.query }}
+                    {{ form.honeypot }}
+                    <br/>
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-primary btn-lg send">Send</button>
+                    </div>
+                </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

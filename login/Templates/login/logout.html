@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block page_content %}
+
+<!-- Writing sample -->
+
+<!-- /Writing sample -->
+<!-- Modal Writing Sample-->
+    
+
+<!-- /Hire for: -->
+<!-- Testimonials -->
+
+<!-- /Testimonials -->
+<!-- Pricing -->
+
+<!-- /Pricing -->
+<!-- Let's Talk -->
+<section class="pd-30 pt-30 letsTalk">
+    <div class="container my-5">
+        <div class="sectionHeader text-center">
+            <h2>You have been logged out</h2>
+            <p class="tagline">Login to continue.</p>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <a class="ml-2" href="{% url 'login' %}">Login</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /Let's Talk -->
+
+{% endblock %}
