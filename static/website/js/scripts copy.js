@@ -1,0 +1,52 @@
+$(document).ready(function() {
+    
+    $('.contactForm').bootstrapValidator({
+        container: '#messages',
+        feedbackIcons: {
+            valid: 'fa fa-check',
+            invalid: 'fa fa-times',
+            validating: 'fa fa-refresh'
+        },
+        fields: {
+            fullName: {
+                validators: {
+                    notEmpty: {
+                        message: 'The full name is required and cannot be empty'
+                    }
+                }
+            },
+            email: {
+                validators: {
+                    notEmpty: {
+                        message: 'The email address is required and cannot be empty'
+                    },
+                    emailAddress: {
+                        message: 'The email address is not valid'
+                    }
+                }
+            },
+            title: {
+                validators: {
+                    notEmpty: {
+                        message: 'The title is required and cannot be empty'
+                    },
+                    stringLength: {
+                        max: 100,
+                        message: 'The title must be less than 100 characters long'
+                    }
+                }
+            },
+            content: {
+                validators: {
+                    notEmpty: {
+                        message: 'The content is required and cannot be empty'
+                    },
+                    stringLength: {
+                        max: 500,
+                        message: 'The content must be less than 500 characters long'
+                    }
+                }
+            }
+        }
+    });
+});
