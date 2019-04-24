@@ -6,7 +6,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .scripts import faceverify
 import time
-from .models import userimg
+from .models import userimg,userresults
 import cv2
 from textblob import TextBlob
 import pythoncom
@@ -15,6 +15,7 @@ from django.contrib import messages
 # Create your views here.
 #row=[]
 c=0
+ress = ''
 def face(request):
 	global c
 	pythoncom.CoInitialize()
@@ -62,6 +63,7 @@ def tt(request):
 def ghi(request):
 	#form = forms.Person()
 	global c
+	global ress
 	pythoncom.CoInitialize()
 	engine=pyttsx3.init()
 	fi = open('questions.txt')
@@ -71,10 +73,11 @@ def ghi(request):
 	if request.method=="POST":
 		#form = forms.Person()
 		#picture = request.POST.get('picture')
-		mean = request.POST.get('n1')
+		mean = request.POST.get('expr')
 		print(mean)
 		answer = request.POST.get('answers')
 		print(answer) 
+		ress += mean+','  
 		c+=1
 	if c>=len(questions):
 		c=0
@@ -108,6 +111,11 @@ def ghi(request):
 		elif nper==pper:
 			li.append(2)
 		print(li)
+		#res1 = ress/len(questions)
+		#res2 = round(res1)
+		idi=request.user.id
+		formobj = userresults(idi,emai,str(li[0]),str(li[1]),str(li[2]),ress)
+		formobj.save()
 		return render(request,'login/logout.html')
 	else:
 
