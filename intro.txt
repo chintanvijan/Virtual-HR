@@ -1,1 +1,1 @@
-Hi, my name is Charlie . I'm a HR. I'm here to take interviews and select best candidates for recruition. I work on Artificial Intelligence, specially created for unbiased recruitment and to recruit those who deserve to be recruited . 
+Hi, my name is Charlie . I am here to conduct interviews and select appropriate candidates for my organisation , thereby ,easing the work of my fellow recruiters. I am an AI based bot developed to conduct smart interviews without human supervision. 
